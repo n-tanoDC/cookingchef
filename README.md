@@ -22,3 +22,8 @@ Installation de Maker (générateur de fichiers PHP) :
  ``` shell-script
 composer require maker --dev
 ```
+
+Installation du moteur de template Twig : 
+ ``` shell-script
+composer require twig
+```
