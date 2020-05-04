@@ -17,3 +17,8 @@ Démarrer le serveur interne de PHP :
  ``` shell-script
 symfony server:start
 ```
+
+Installation de Maker (générateur de fichiers PHP) :
+ ``` shell-script
+composer require maker --dev
+```
