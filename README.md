@@ -1,35 +1,39 @@
 # Installation d'un projet Symfony
 
+## Télécharger Symfony 
 Télécharger Symfony via le CLI :
 
- ``` shell-script
+```shell script
 symfony new cookingchef
 symfony new cookingchef --full
 ```
 Vérifier la configuration de PHP :
 
- ``` shell-script
+```shell script
 symfony check:requirements
 ```
 
 Démarrer le serveur interne de PHP :
 
- ``` shell-script
+```shell script
 symfony server:start
 ```
 
+## Maker
 Installation de Maker (générateur de fichiers PHP) :
- ``` shell-script
+```shell script
 composer require maker --dev
 ```
 
+## Twig
 Installation du moteur de template Twig : 
- ``` shell-script
+ ```shell script
 composer require twig
 ```
 
+## Webpack
 Installation de Webpack Encore (gestionnaire JS/CSS) :
- ``` shell-script
+ ```shell script
 composer require encore
 ```
 
@@ -53,6 +57,15 @@ Générer les balises link et script :
 </html>
 ```
 Démarrer la compilation des assets : 
- ``` shell-script
+```shell script
 npm run watch
+```
+
+Activer la compilation du SCSS : 
+- Renommer le fichier assets/css/app.css --> assets/css/app.scss
+- Modifier l'import dans le fichier assests/js/app.js --> ```import '../css/app.scss'```
+- Dans le fichier webpack.config.js, décommenter la ligne 57 ".enableSassLoader()"
+
+```shell script
+npm install sass-loader@^7.0.1 node-sass --save-dev
 ```
