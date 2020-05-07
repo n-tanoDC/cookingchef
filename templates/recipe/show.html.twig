@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - {{ recipe.title }}{% endblock %}
+
+{% block body %}
+    <main class="container">
+
+        <section class="row">
+            <div class="col-md-4">
+                <img src="{{ asset('uploads/' ~ recipe.picture) }}" alt="{{ recipe.title }}" class="img-responsive">
+            </div>
+            <div class="col-md-4">
+                <p>
+                    {% for step in recipe.steps %}
+                        <li>{{ step.description }}</li>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>Ingrédients</h2>
+                <ul>
+                    {% for ingredient in recipe.recipeIngredients %}
+                        <li>{{ ingredient.quantity ~ ' ' ~ ingredient.unit.label ~ ' de ' ~ ingredient.ingredient.label }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <div class="label"><a href="#" class="like"><i class="fa fa-heart"></i></a> 42</div>
+        <div class="label"><i class="fa fa-cutlery"></i><a href="{{ path('Search', {category: recipe.category.id}) }}">{{ recipe.category.label }}</a></div>
+        <div class="label"><i class="fa fa-user"></i> Etienne H.</div>
+
+        {% for tag in recipe.tags %}
+            <i>{{ tag.label }}</i>
+        {% endfor %}
+        <div class="col-md-4">
+            <ul>
+                <li>Préparation : {{ recipe.preparationTime|date('H:i:s') }} minutes</li>
+                <li>Cuisson : {{ recipe.bakingTime|date('H:i:s') }} minutes</li>
+            </ul>
+        </div>
+
+
+    </main>
+{% endblock %}

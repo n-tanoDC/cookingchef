@@ -1,6 +1,35 @@
 {% extends "base.html.twig" %}
 
+{% block title %}{{ parent() }} - Accueil{% endblock %}
+
 {% block body %}
-    <h1>Page d'accueil</h1>
+    <main class="container container-home">
+
+        <h1>Découvrez nos dernières recettes Cooking Chef !</h1>
+        <p>
+            Parcourez nos {{ recipes|length }} recettes {% if app.request.get("category") != false %}dans la catégorie {{ category.label|lower }}{% endif %}...
+        </p>
+
+        <section class="row recipes">
+
+            {% for recipe in recipes %}
+                <div class="col-md-4">
+                    <article>
+                        <a href="{{ path('recipe_show', {id: recipe.id}) }}">
+                            <img src="{{ asset('uploads/' ~ recipe.picture) }}" alt="{{ recipe.title }}" class="img-responsive">
+                        </a>
+                        <h2><a href="{{ path('recipe_show', {id: recipe.id}) }}">{{ recipe.title }}</a></h2>
+                        <footer>
+                            <div class="label"><a href="#" class="like"><i class="fa fa-heart"></i></a> 12</div>
+                            <div class="label"><i class="fa fa-cutlery"></i><a href="{{ path('Search', {category: recipe.category.id}) }}">{{ recipe.category.label }}</a></div>
+                            <div class="label"><i class="fa fa-user"></i> François P.</div>
+                        </footer>
+                    </article>
+                </div>
+            {% endfor %}
+
+        </section>
+
+    </main>
 {% endblock %}
 
