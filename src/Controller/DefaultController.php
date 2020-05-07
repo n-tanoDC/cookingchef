@@ -26,7 +26,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/search", name="Search")
+     * @Route("/category", name="Category")
      * @param Request $request
      * @return Response
      */

@@ -21,7 +21,7 @@
                         <h2><a href="{{ path('recipe_show', {id: recipe.id}) }}">{{ recipe.title }}</a></h2>
                         <footer>
                             <div class="label"><a href="#" class="like"><i class="fa fa-heart"></i></a> 12</div>
-                            <div class="label"><i class="fa fa-cutlery"></i><a href="{{ path('Search', {category: recipe.category.id}) }}">{{ recipe.category.label }}</a></div>
+                            <div class="label"><i class="fa fa-cutlery"></i><a href="{{ path('Category', {category: recipe.category.id}) }}">{{ recipe.category.label }}</a></div>
                             <div class="label"><i class="fa fa-user"></i> François P.</div>
                         </footer>
                     </article>
